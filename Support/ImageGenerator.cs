@@ -15,7 +15,7 @@ public record ImageGenerator(Rank rank)
     {
         var parser = new CharacterParser();
         var characters = rank.Text
-            .Select(c => parser.Parse(GetCharacterAssetPath(c)))
+            .Select(c => parser.Parse(Assets.GetAssetPath(c)))
             .ToArray();
 
         var innerWidth = characters.Sum(c => c.Pixels.GetLength(0));
@@ -68,19 +68,5 @@ public record ImageGenerator(Rank rank)
         }
 
         image.SaveAsPng(path);
-    }
-
-    private static string GetCharacterAssetPath(char character)
-    {
-        var lower = char.ToLowerInvariant(character);
-
-        return lower switch
-        {
-            ' ' => "assets/symbols/space.png",
-            '+' => "assets/symbols/plus.png",
-            '!' => "assets/symbols/exclamation_mark.png",
-            (>= 'а' and <= 'я') or 'ё' => $"assets/letters/{lower}.png",
-            _ => "assets/symbols/unknown.png"
-        };
     }
 }
