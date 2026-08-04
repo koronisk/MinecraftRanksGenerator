@@ -8,6 +8,7 @@ public static class Assets
     .AddAll(LoadFrom("assets/letters/ru"))
     .AddAll(LoadFrom("assets/letters/en"))
     .AddAll(LoadFrom("assets/numbers"))
+    .AddAll(LoadFrom("assets/custom"))
     .AddAll(LoadSymbols());
 
     private static Dictionary<char, string> LoadFrom(string path)
