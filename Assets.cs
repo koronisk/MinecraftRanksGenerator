@@ -5,7 +5,8 @@ namespace MinecraftRanksGenerator;
 public static class Assets
 {
     private static Dictionary<char, string> CharactersAssets { get; } = new Dictionary<char, string>()
-    .AddAll(LoadFrom("assets/letters"))
+    .AddAll(LoadFrom("assets/letters/ru"))
+    .AddAll(LoadFrom("assets/letters/en"))
     .AddAll(LoadFrom("assets/numbers"))
     .AddAll(LoadSymbols());
 
